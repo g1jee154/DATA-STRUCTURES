@@ -2,7 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 
-#define MAX 100
+#define MAX 2
 
 char stack[MAX];
 int top = -1;
@@ -37,7 +37,7 @@ int prec(char op) {
         case '/': return 2;
         case '+':
         case '-': return 1;
-        default: return 0; /* '(' */
+        default: return 0; 
     }
 }
 
@@ -52,9 +52,9 @@ void infixToPostfix(const char *infix, char *postfix) {
         char ch = infix[i];
 
         if (isspace((unsigned char)ch))
-            continue; /* ignore spaces */
+            continue; 
 
-        if (isalnum((unsigned char)ch)) { /* operand */
+        if (isalnum((unsigned char)ch)) { 
             postfix[j++] = ch;
         }
         else if (ch == '(') {
